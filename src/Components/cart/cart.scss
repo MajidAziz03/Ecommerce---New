@@ -1,0 +1,116 @@
+.cart {
+    width: 100%;
+    min-height: 100vh;
+    max-height: max-content;
+    display: flex;
+
+    &.emptyCart{
+        max-height: 80vh;
+    }
+
+    .left {
+        flex: 2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .container {
+            width: 900px;
+            height: 100%;
+            padding-top: 50px;
+            padding-bottom: 50px;
+
+            .head {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .hr {
+                margin-top: 32px;
+                margin-bottom: 32px;
+            }
+
+            .empty {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 70vh;
+            }
+        }
+    }
+
+    .right {
+        flex: 0.7;
+        padding-top: 50px;
+        padding-bottom: 50px;
+        background-color: lightgray;
+
+        .title {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .hrdiv {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .hr {
+                width: 85%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: silver;
+                opacity: 0.5;
+                padding-left: 12px;
+                padding-right: 12px;
+            }
+        }
+
+        .items {
+            display: flex;
+            align-items: center;
+            padding: 12px 42px;
+            justify-content: space-between;
+
+        }
+
+        .shippingContainer {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px 42px;
+
+            h6 {
+                display: flex;
+                align-items: center;
+                font-size: 18px;
+            }
+
+            select {
+                background-color: white;
+                border-radius: 5px;
+                width: 70%;
+                padding: 12px;
+            }
+
+            input {
+                width: 70%;
+                padding: 12px;
+            }
+        }
+
+        .total {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 42px;
+        }
+    }
+}

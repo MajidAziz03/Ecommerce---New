@@ -1,0 +1,42 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+
+    th {
+        text-align: left;
+        padding: 5px;
+        background-color: orange;
+    }
+
+    td {
+        padding: 10px 5px;
+
+        .quantity {
+            padding-left: 12px;
+        }
+
+        .holder {
+            display: flex;
+            gap: 5px;
+
+            img {
+                width: 80px;
+                height: 80px;
+                
+            }
+
+            .info {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+                padding-top: 2px;
+                padding-left: 2px;
+
+                .remove{
+                    cursor: pointer;
+                    color: red;
+                }
+            }
+        }
+    }
+}

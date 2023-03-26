@@ -1,25 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react';
+
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from 'react-router-dom';
+import Cart from './Components/cart/Cart';
+import Login from './Components/login/Login';
+import Product from './Components/product/Product';
+import Products from './Components/products/Products';
+import Single from './Components/single/Single';
+import { useAppSelector } from './redux/hooks';
 
 function App() {
+
+  const user = useAppSelector((state) => state.user.user.token)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path='/cart' element={<Cart />} />
+        <Route path='/single/:id' element={<Single />} />
+        {
+          user
+            ?
+            <Route path='/products' element={<Products />} />
+            :
+            <Route path='/login' element={<Login />} />
+        }
+      </Routes>
+    </Router>
   );
 }
 
