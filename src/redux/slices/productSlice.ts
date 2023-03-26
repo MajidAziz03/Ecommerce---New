@@ -8,13 +8,14 @@ export interface InitialStateProps {
     description: string;
     brand: string;
     thumbnail: string;
-    quantity : number;
+    quantity: number;
 }
+
 
 
 interface CartState {
     items: InitialStateProps[];
-    total: number;
+    total: unknown;
 }
 
 
@@ -41,18 +42,30 @@ export const counterSlice = createSlice({
             else {
                 const temp = { ...items, quantity: 1 }
                 state.items.push(temp)
-                state.total += items.price;
             }
         },
         remove: (state, action: PayloadAction<number>) => {
             const id = action.payload
             const deleted = state.items.filter((item) => item.id !== id)
             state.items = deleted;
-        }
+        },
+        increament: (state, action: PayloadAction<number>) => {
+            const id = action.payload;
+            const ext = state.items.findIndex((item) => item.id === id)
+            state.items[ext].quantity += 1;
+        },
+
+        decrement: (state) => {
+            state.items.filter((item) => {
+                if (item.quantity > 1) {
+                    return item.quantity -= 1
+                }
+            })
+        },
     },
 })
 
-export const { addToCart, remove } = counterSlice.actions;
+export const { addToCart, remove, increament, decrement } = counterSlice.actions;
 
 export default counterSlice.reducer;
 

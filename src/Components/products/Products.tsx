@@ -9,6 +9,8 @@ import { Navigation, Pagination } from "swiper";
 import "swiper/css/navigation";
 import Header from '../header/Header';
 import Navbar from '../navbar/Navbar';
+import { useAppSelector } from '../../redux/hooks';
+import { useNavigate } from 'react-router-dom';
 
 interface ProductProps {
   id: number;
@@ -24,6 +26,8 @@ interface ProductProps {
 
 const Products = () => {
   const [products, setProducts] = useState<ProductProps[]>([])
+  const user = useAppSelector((state) => state.user.user.token)
+  const router = useNavigate()
 
   const getData = async () => {
     try {
@@ -35,6 +39,7 @@ const Products = () => {
     }
   }
 
+
   useEffect(() => {
     getData()
   }, [])
@@ -42,30 +47,30 @@ const Products = () => {
 
   return (
     <>
-    <Navbar />
-    <Header />
-    <div className="swiper-container">
-      <Swiper
-        slidesPerView={4.5}
-        spaceBetween={30}
-        navigation={true}
-        pagination={{
-          clickable: true,
-        }}
-        modules={[Navigation]}
-        className="swiper"
-      >
-        {
-          products.map((item: ProductProps, i) => (
-            <>
-              <SwiperSlide>
-                <Product items={item} />
-              </SwiperSlide>
-            </>
-          ))
-        }
-      </Swiper>
-    </div>
+      <Navbar />
+      <Header />
+      <div className="swiper-container">
+        <Swiper
+          slidesPerView={4.5}
+          spaceBetween={30}
+          navigation={true}
+          pagination={{
+            clickable: true,
+          }}
+          modules={[Navigation]}
+          className="swiper"
+        >
+          {
+            products.map((item: ProductProps, i) => (
+              <>
+                <SwiperSlide>
+                  <Product items={item} />
+                </SwiperSlide>
+              </>
+            ))
+          }
+        </Swiper>
+      </div>
     </>
   )
 }

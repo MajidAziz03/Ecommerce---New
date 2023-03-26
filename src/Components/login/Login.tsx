@@ -11,7 +11,6 @@ const Login = () => {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const router = useNavigate()
-    const userData = useAppSelector((state) => state.user.user)
     const dispatch = useAppDispatch()
 
     const handleSubmit = async (e: React.FormEvent) => {
@@ -29,6 +28,7 @@ const Login = () => {
             console.log("error in posting")
         }
     }
+
 
     return (
         <div className='login'>

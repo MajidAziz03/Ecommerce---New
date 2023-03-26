@@ -16,6 +16,8 @@ function App() {
 
   const user = useAppSelector((state) => state.user.user.token)
 
+console.log("user Token", user)
+  
   return (
     <Router>
       <Routes>

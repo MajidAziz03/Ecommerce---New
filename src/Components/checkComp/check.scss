@@ -38,5 +38,17 @@ table {
                 }
             }
         }
+
+        
+        .incr {
+            display: flex;
+            gap: 2px;
+            align-items: center;
+
+            .quan {
+                border: 1px solid lightgray;
+                padding: 5px;
+            }
+        }
     }
 }

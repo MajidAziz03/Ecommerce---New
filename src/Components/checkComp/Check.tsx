@@ -1,6 +1,7 @@
 import './check.scss';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
-import { InitialStateProps, remove } from '../../redux/slices/productSlice';
+import { decrement, increament, InitialStateProps, remove } from '../../redux/slices/productSlice';
+import { Add, PlusOne, Remove } from '@mui/icons-material';
 
 
 const Check = () => {
@@ -12,6 +13,14 @@ const Check = () => {
 
   const handleRemove = (id: number) => {
     dispatch(remove(id))
+  }
+
+  const inr = (id: number) => {
+    dispatch(increament(id))
+  }
+
+  const dec = () => {
+    dispatch(decrement())
   }
 
   return (
@@ -39,10 +48,16 @@ const Check = () => {
                 </td>
                 <td>
                   {/* <span className="quantity">{cartQuantity}</span> */}
-                  {item.quantity}
+                  <div className="incr">
+                    <Remove sx={{ cursor: "pointer" }} onClick={dec} />
+                    <span className="quan">
+                      {item.quantity}
+                    </span>
+                    <Add sx={{ cursor: "pointer" }} onClick={() => inr(item.id)} />
+                  </div>
                 </td>
                 <td><span className="price">${item.price} </span></td>
-                <td> <span className="total">$2322</span>  </td>
+                {/* <td> <span className="total"> ${cartTotal} </span>  </td> */}
               </tr>
             </>
           ))

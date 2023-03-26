@@ -2,17 +2,25 @@ import React, { useEffect } from 'react'
 import './navbar.scss';
 import { ShoppingCartOutlined } from '@mui/icons-material'
 import { Badge } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
-import { useAppSelector } from '../../redux/hooks';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+import { logout } from '../../redux/slices/userSlice';
+
 
 
 
 const Navbar = () => {
     const quantity = useAppSelector((state) => state.product.items)
     const user = useAppSelector((state) => state.user.user.token)
+    const dispatch = useAppDispatch()
+    const router = useNavigate()
 
+    const handle = () => {
+        dispatch(logout())
+        router('/login')
+    }
 
     return (
         <div className='navbar'>
@@ -38,6 +46,12 @@ const Navbar = () => {
                             <Link to='/login'>
                                 <li >Login</li>
                             </Link>
+                    }
+                    {
+                        user ?
+                            <span style={{ cursor: "pointer" }} onClick={handle}>Logout</span>
+                            :
+                            ''
                     }
                 </ul>
             </div>
