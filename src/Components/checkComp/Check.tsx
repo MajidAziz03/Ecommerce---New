@@ -6,7 +6,7 @@ import { InitialStateProps, remove } from '../../redux/slices/productSlice';
 const Check = () => {
 
   const cartData = useAppSelector((state) => state.product.items)
-  const cartQuantity = useAppSelector((state) => state.product.quantity)
+  // const cartQuantity = useAppSelector((state) => state.product.quantity)
   const cartTotal = useAppSelector((state) => state.product.total)
   const dispatch = useAppDispatch()
 
@@ -38,7 +38,8 @@ const Check = () => {
                   </div>
                 </td>
                 <td>
-                  <span className="quantity">{cartQuantity}</span>
+                  {/* <span className="quantity">{cartQuantity}</span> */}
+                  {item.quantity}
                 </td>
                 <td><span className="price">${item.price} </span></td>
                 <td> <span className="total">$2322</span>  </td>

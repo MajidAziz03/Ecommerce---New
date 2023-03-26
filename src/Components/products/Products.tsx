@@ -40,9 +40,6 @@ const Products = () => {
   }, [])
 
 
-
-
-
   return (
     <>
     <Navbar />
