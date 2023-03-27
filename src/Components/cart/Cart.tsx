@@ -1,4 +1,6 @@
 import { Button } from '@mui/material';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useAppSelector } from '../../redux/hooks';
 import Check from '../checkComp/Check';
 import Navbar from '../navbar/Navbar';
@@ -7,6 +9,14 @@ import './cart.scss';
 const Cart = () => {
     const cartData = useAppSelector((state) => state.product.items)
 
+    const userToken = useAppSelector((state) => state.user.user.token)
+const router = useNavigate()
+
+    useEffect(() => {
+        if(!userToken) {
+            router('/login')
+        }
+    }, [userToken])
 
     return (
         <>

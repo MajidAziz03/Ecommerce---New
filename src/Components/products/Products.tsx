@@ -22,12 +22,8 @@ interface ProductProps {
 
 }
 
-
-
 const Products = () => {
   const [products, setProducts] = useState<ProductProps[]>([])
-  const user = useAppSelector((state) => state.user.user.token)
-  const router = useNavigate()
 
   const getData = async () => {
     try {
@@ -38,7 +34,6 @@ const Products = () => {
       console.log(error.message)
     }
   }
-
 
   useEffect(() => {
     getData()

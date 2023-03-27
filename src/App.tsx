@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react';
-
 import {
   BrowserRouter as Router,
   Routes,
-  Route
+  Route,
 } from 'react-router-dom';
 import Cart from './Components/cart/Cart';
 import Login from './Components/login/Login';
@@ -12,12 +11,14 @@ import Products from './Components/products/Products';
 import Single from './Components/single/Single';
 import { useAppSelector } from './redux/hooks';
 
+
 function App() {
 
   const user = useAppSelector((state) => state.user.user.token)
+  console.log("user Token", user)
 
-console.log("user Token", user)
-  
+
+
   return (
     <Router>
       <Routes>

@@ -1,5 +1,5 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react'
+import { Link} from 'react-router-dom';
 import './product.scss';
 
 
@@ -18,7 +18,6 @@ interface Props {
 
 
 const Product = ({ items }: Props) => {
-
 
     return (
         <div className='product'>
