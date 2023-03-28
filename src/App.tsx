@@ -14,11 +14,6 @@ import { useAppSelector } from './redux/hooks';
 
 
 function App() {
-
-  const user = useAppSelector((state) => state.user.user.token)
-
-
-
   return (
     <Router>
       <Routes>

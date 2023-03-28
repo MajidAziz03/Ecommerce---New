@@ -18,28 +18,33 @@ const Login = () => {
     const dispatch = useAppDispatch()
 
 
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault()
-        try {
-            const res = await axios.post('https://dummyjson.com/auth/login', {
-                username: username,
-                password: password,
-            })
-            if (res) {
-                router('/products')
-                dispatch(success(res.data))
-            }
-        } catch (error) {
-            console.log("error in posting")
-        }
-    }
+    // const handleSubmit = async (e: React.FormEvent) => {
+    //     e.preventDefault()
+    //     try {
+    //         const res = await axios.post('https://dummyjson.com/auth/login', {
+    //             username: username,
+    //             password: password,
+    //         })
+    //         if (res) {
+    //             router('/products')
+    //             dispatch(success(res.data))
+    //         }
+    //     } catch (error) {
+    //         console.log("error in posting")
+    //     }
+    // }
 
+    // const handleSubmitForm = (e:React.FormEvent) => {
+    //     e.preventDefault()
+    //     const data = loginUser(username,password)
+    //     console.log("data comes from form", data)
+    // }
 
     return (
         <>
             <Navbar />
-            <div className='login'>
-                <form onSubmit={handleSubmit}>
+            {/* <div className='login'>
+                <form onSubmit={handleSubmitForm}>
                     <div className="holderForm">
                         <h1> Login </h1>
                         <input type="text" placeholder='Enter username' value={username} onChange={(e) => setUsername(e.target.value)} />
@@ -56,7 +61,7 @@ const Login = () => {
                         </div>
                     </div>
                 </form>
-            </div>
+            </div> */}
         </>
     )
 }

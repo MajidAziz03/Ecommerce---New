@@ -8,7 +8,6 @@ import './cart.scss';
 
 const Cart = () => {
     const cartData = useAppSelector((state) => state.product.items)
-    const userToken = useAppSelector((state) => state.user.user.token)
 
     
     return (

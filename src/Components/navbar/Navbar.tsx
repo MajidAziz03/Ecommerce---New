@@ -13,7 +13,6 @@ import { logout } from '../../redux/slices/userSlice';
 
 const Navbar = () => {
     const quantity = useAppSelector((state) => state.product.items)
-    const user = useAppSelector((state) => state.user.user.token)
     const dispatch = useAppDispatch()
     const router = useNavigate()
 
@@ -34,25 +33,15 @@ const Navbar = () => {
                     <li>Products</li>
                     <li>Feature</li>
                     <li>Contact</li>
-                    {
-                        user
-                            ?
                             <Link to='/cart' >
                                 <Badge badgeContent={quantity.length} sx={{ color: "red", fontSize: "12px" }}>
                                     <ShoppingCartOutlined color='primary' />
                                 </Badge>
                             </Link>
-                            :
                             <Link to='/login'>
                                 <li >Login</li>
                             </Link>
-                    }
-                    {
-                        user ?
                             <span style={{ cursor: "pointer" }} onClick={handle}>Logout</span>
-                            :
-                            ''
-                    }
                 </ul>
             </div>
         </div>
