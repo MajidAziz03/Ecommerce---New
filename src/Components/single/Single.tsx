@@ -2,7 +2,7 @@ import { Button } from '@mui/material';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { addToCart } from '../../redux/slices/productSlice';
 import { RootState } from '../../redux/store';
 import Navbar from '../navbar/Navbar';
@@ -21,12 +21,15 @@ interface ProductProps {
 
 const Single = () => {
     const cart = useAppSelector((state) => state.product)
+    const user = useAppSelector((state) => state.user.user.token)
     const dispatch = useAppDispatch()
-
     const history = useLocation()
 
     const path = (history.pathname.split('/')[2])
+    const router = useNavigate()
+
     const [data, setData] = useState<ProductProps>()
+
 
     const singleProduct = async () => {
         const res = await axios.get(`https://dummyjson.com/products/${path}`)
@@ -48,6 +51,12 @@ const Single = () => {
             console.log(error)
         }
     }
+
+    useEffect(() => {
+        if (!user) {
+            router('/login', { state: { messages: "Please Login First" } })
+        }
+    }, [])
 
     return (
         <>
