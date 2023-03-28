@@ -42,8 +42,6 @@ const Products = () => {
 
   return (
     <>
-      <Navbar />
-      <Header />
       <div className="swiper-container">
         <Swiper
           slidesPerView={4.5}
