@@ -6,41 +6,60 @@
     align-items: center;
 
     form {
-        width: 400px;
-        background-color: silver;
+        width: 450px;
+        height: 380px;
+        background-color: rgb(234, 227, 228);
         border-radius: 5px;
-        height: 400px;
+        padding: 12px;
         display: flex;
         justify-content: center;
-        align-items: center;
 
-        div {
+        .holderForm {
             display: flex;
-            justify-content: center;
-            align-items: center;
             flex-direction: column;
-            gap: 10px;
-            width: 100%;
-
+            gap: 25px;
+            height: 80%;
+            width: 80%;
 
             input {
-                width: 80%;
+                width: 100%;
+                padding: 12px;
                 border: 1px solid lightgray;
                 outline: none;
-                padding: 12px;
             }
 
-            button {
-                background-color: #111;
-                color: white;
-                padding: 12px;
-                border: none;
-                width: 50%;
-                cursor: pointer;
-                font-size: 15px;
+            h1 {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: 22px;
+                margin-bottom: 22px;
+            }
+
+            .holderInput {
+                display: flex;
+                position: relative;
+
+                input {
+                    width: 100%;
+                }
+
+                .ico {
+                    position: absolute;
+                    right: 12px;
+                    top: 0;
+                    bottom: 0;
+                    margin: auto;
+                    cursor: pointer;
+                    font-size: 18px;
+                }
+            }
+
+            .btn {
+                width: 30%;
             }
         }
+
+
     }
-
-
 }
