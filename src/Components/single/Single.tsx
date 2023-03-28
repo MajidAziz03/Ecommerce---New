@@ -21,7 +21,6 @@ interface ProductProps {
 
 const Single = () => {
     const cart = useAppSelector((state) => state.product)
-    const user = useAppSelector((state) => state.user.user.token)
     const dispatch = useAppDispatch()
     const history = useLocation()
 
@@ -51,12 +50,6 @@ const Single = () => {
             console.log(error)
         }
     }
-
-    useEffect(() => {
-        if (!user) {
-            router('/login', { state: { messages: "Please Login First" } })
-        }
-    }, [])
 
     return (
         <>

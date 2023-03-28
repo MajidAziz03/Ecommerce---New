@@ -5,18 +5,16 @@ import { BASE_URL } from "./globalconfig";
 
 
 const instance = axios.create({
-    baseURL : BASE_URL 
+    baseURL: BASE_URL
 })
 
-// export const loginUser = async(user : string, pass : string) => {
-//     try {
-//         const response = await instance.post('auth/login', {
-//             user,
-//             pass
-//         })
-//         toast.success("login successfully")
-//         return response.data;
-//     } catch (error: any) {
-//         toast.error("error")
-//     }
-// }
+
+export const products = async () => {
+    try {
+        const res = await instance.get('products')
+        return res.data.products
+
+    } catch (error) {
+        console.log("error occurred")
+    }
+}

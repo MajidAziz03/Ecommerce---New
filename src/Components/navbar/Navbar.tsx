@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { logout } from '../../redux/slices/userSlice';
-
+import { NavLink } from "react-router-dom";
 
 
 
@@ -24,24 +24,23 @@ const Navbar = () => {
     return (
         <div className='navbar'>
             <div className="left">
-                <h3>-majid-store</h3>
+                <h3>--store</h3>
             </div>
             <div className="right">
                 <ul>
-                    <Link to='/'><li>Home</li></Link>
+                    <NavLink  to='/' style={{ color: "inherit", textDecoration:"none"}}><li>Home</li></NavLink>
                     <li>About</li>
                     <li>Products</li>
                     <li>Feature</li>
                     <li>Contact</li>
-                            <Link to='/cart' >
-                                <Badge badgeContent={quantity.length} sx={{ color: "red", fontSize: "12px" }}>
-                                    <ShoppingCartOutlined color='primary' />
-                                </Badge>
-                            </Link>
-                            <Link to='/login'>
-                                <li >Login</li>
-                            </Link>
-                            <span style={{ cursor: "pointer" }} onClick={handle}>Logout</span>
+                    <Link to='/cart' style={{ color: "inherit", textDecoration:"none"}}>
+                        <Badge badgeContent={quantity.length} sx={{ color: "red", fontSize: "12px" }}>
+                            <ShoppingCartOutlined color='primary' />
+                        </Badge>
+                    </Link>
+                    {/* <Link to='/login'>
+                        <li >Login</li>
+                    </Link> */}
                 </ul>
             </div>
         </div>

@@ -8,6 +8,7 @@ import Cart from './Components/cart/Cart';
 import Home from './Components/Homepage/Home';
 import Login from './Components/login/Login';
 import Product from './Components/product/Product';
+import ProductList from './Components/productlist/ProductList';
 import Products from './Components/products/Products';
 import Single from './Components/single/Single';
 import { useAppSelector } from './redux/hooks';
@@ -20,8 +21,8 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/cart' element={<Cart />} />
         <Route path='/single/:id' element={<Single />} />
-        <Route path='/products' element={<Products />} />
         <Route path='/login' element={<Login />} />
+        <Route path='/products' element={<ProductList />} />
       </Routes>
     </Router>
   );

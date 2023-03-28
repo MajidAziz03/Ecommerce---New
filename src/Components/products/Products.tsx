@@ -12,14 +12,13 @@ import Navbar from '../navbar/Navbar';
 import { useAppSelector } from '../../redux/hooks';
 import { useNavigate } from 'react-router-dom';
 
-interface ProductProps {
+export interface ProductProps {
   id: number;
   title: string;
   price: number;
   description: string;
   brand: string;
   thumbnail: string;
-
 }
 
 const Products = () => {
@@ -44,9 +43,8 @@ const Products = () => {
     <>
       <div className="swiper-container">
         <Swiper
-          slidesPerView={4.5}
-          spaceBetween={30}
-          navigation={true}
+          slidesPerView={5.3}
+          spaceBetween={0}
           pagination={{
             clickable: true,
           }}
@@ -54,7 +52,7 @@ const Products = () => {
           className="swiper"
         >
           {
-            products.map((item: ProductProps, i) => (
+            products.slice(0,10).map((item: ProductProps, i) => (
               <>
                 <SwiperSlide>
                   <Product items={item} />
