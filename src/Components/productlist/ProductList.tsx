@@ -51,24 +51,28 @@ const ProductList = () => {
     // };
 
 
-const handleSearch = (e:React.FormEvent) => {
-    e.preventDefault()
-    if (inputRef.current) {
-                setInputSearch(inputRef.current.value.toLowerCase());
-            }
-            const filteredData = data.filter((item) => {
-                return item.title.toLowerCase().includes(inputSearch);
-            });
-            setSearchItem(filteredData);
-}
+    const handleSearch = (e: React.FormEvent) => {
+        e.preventDefault()
+        if (inputRef.current) {
+            setInputSearch(inputRef.current.value.toLowerCase());
+        }
+        const filteredData = data.filter((item) => {
+            return item.title.toLowerCase().includes(inputSearch);
+        });
+        setSearchItem(filteredData);
+    }
+
+    const handleEnter = (e: React.KeyboardEvent<HTMLFormElement>) => {
+        if (e.key === 'Enter') {
+            handleSearch(e)
+        }
+    }
 
 
     useEffect(() => {
         products().then(res => setData(res))
     }, [])
 
-    console.log("searchItem", searchItem)
-    console.log("Input value", inputSearch)
 
     return (
         <>
@@ -86,8 +90,9 @@ const handleSearch = (e:React.FormEvent) => {
                         }
                     </ul>
                 </div>
+                
                 <div className="right">
-                    <form className="search" onSubmit={handleSearch}>
+                    <form className="search" onSubmit={handleSearch} onKeyDown={handleEnter} >
                         <input type="text" placeholder='Search product...' ref={inputRef} />
                         <button className='btn'>
                             <Search className='sear' />
