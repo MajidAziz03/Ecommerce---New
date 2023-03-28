@@ -1,3 +1,16 @@
+.productsHolder {
+    display: flex;
+
+    .left {
+        flex: 0.5;
+    }
+
+    .right {
+        flex: 2;
+        padding-right: 12px;
+    }
+}
+
 .list {
     width: 100%;
     min-height: 100vh;
@@ -25,6 +38,7 @@
         cursor: pointer;
         font-size: 18x;
     }
+
     .previous {
         padding: 5px;
         cursor: pointer;

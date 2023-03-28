@@ -30,14 +30,19 @@ const ProductList = () => {
     return (
         <>
             <Navbar />
-            <div className='list'>
-                {
-                    currentItems.map((item) => (
-                        <Product items={item} />
-                    ))
-                }
-            </div>
-            <ReactPaginate
+            <div className="productsHolder">
+                <div className="left">
+                    left
+                </div>
+                <div className="right">
+                <div className='list'>
+                    {
+                        currentItems.map((item) => (
+                            <Product items={item} />
+                        ))
+                    }
+                </div>
+                <ReactPaginate
                     breakLabel="..."
                     nextLabel="next >"
                     onPageChange={handlePageClick}
@@ -50,6 +55,8 @@ const ProductList = () => {
                     nextLinkClassName='previous'
                     activeLinkClassName='active'
                 />
+                </div>
+            </div>
         </>
     )
 }
