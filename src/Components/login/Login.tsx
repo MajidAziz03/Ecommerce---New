@@ -47,6 +47,10 @@ const Login = () => {
                     <div>
                         <Button type='submit' variant='contained' size='small' className='btn' >Login</Button>
                     </div>
+                    <div>
+                        <p>Forgot Password? <span style={{ textDecoration: "underline", cursor: "pointer" }}> reset password</span></p>
+                        <p style={{ marginTop: "12px" }}>Already have an account? <span style={{ textDecoration: "underline", cursor: "pointer" }}>Login</span></p>
+                    </div>
                 </div>
             </form>
         </div>
