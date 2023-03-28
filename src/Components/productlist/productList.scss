@@ -1,13 +1,64 @@
 .productsHolder {
     display: flex;
+    margin-top: 85px;
 
     .left {
         flex: 0.5;
+
+        ul {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;padding: 0;
+            list-style: none;
+
+            li {
+                padding: 5px;
+                cursor: pointer;
+            }
+        }
     }
 
     .right {
         flex: 2;
         padding-right: 12px;
+
+        .search {
+            display: flex;
+            border: 1px solid lightgray;
+            position: relative;
+        width: 200px;
+        margin-bottom: 22px;
+        margin-left: 22px;
+        border-top: none;
+        border-right: none;
+        border-left: none;
+
+
+            input {
+                padding: 5px 12px;
+                border: none;
+                outline:  none;
+                background-color: transparent;
+            }
+
+            .btn {
+                border: none;
+                outline: none;
+            }
+
+            .sear {
+                padding: 5px;
+                position: absolute;
+                right: 0;
+                font-size: 30px;
+                cursor: pointer;
+                top: 0;                
+                bottom: 0;
+                margin: auto;
+            }
+
+        }
     }
 }
 
@@ -17,12 +68,11 @@
     height: max-content;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    // justify-content: space-between;
     align-items: center;
     gap: 25px;
     padding-left: 22px;
     padding-right: 22px;
-    margin-top: 85px;
 }
 
 .pagination {
@@ -32,6 +82,7 @@
     margin-bottom: 22px;
     gap: 15px;
     list-style: none;
+    margin-top: 22px;
 
     .page-num {
         padding: 6px;
