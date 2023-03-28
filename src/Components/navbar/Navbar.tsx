@@ -30,7 +30,7 @@ const Navbar = () => {
                 <ul>
                     <NavLink  to='/' style={{ color: "inherit", textDecoration:"none"}}><li>Home</li></NavLink>
                     <li>About</li>
-                    <li>Products</li>
+                    <NavLink  to='/products' style={{ color: "inherit", textDecoration:"none"}}><li>Products</li></NavLink>
                     <li>Feature</li>
                     <li>Contact</li>
                     <Link to='/cart' style={{ color: "inherit", textDecoration:"none"}}>
