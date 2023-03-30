@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
 import { products } from '../../utils';
-import { ProductProps } from '../products/Products';
 import './productList.scss';
 import Product from '../product/Product';
 import Navbar from '../navbar/Navbar';
@@ -9,6 +8,15 @@ import { lists } from '../../lists';
 import axios from 'axios';
 import { useLocation } from 'react-router-dom';
 import { Search, SearchOffOutlined } from '@mui/icons-material';
+
+interface ProductProps {
+    id: number;
+    title: string;
+    price: number;
+    description: string;
+    brand: string;
+    thumbnail: string;
+}
 
 
 const ProductList = () => {
@@ -39,34 +47,21 @@ const ProductList = () => {
         setCategory(res.data.products)
     }
 
-    // const handleSearch = () => {
-    //     if (inputRef.current) {
-    //         setInputSearch(inputRef.current.value.toLowerCase());
-    //     }
-    //     const filteredData = data.filter((item: ProductProps) => {
-    //         return item.title.toLowerCase().includes(inputSearch);
-    //     });
-
-    //     setSearchItem(filteredData);
-    // };
 
 
-    const handleSearch = (e: React.FormEvent) => {
-        e.preventDefault()
-        if (inputRef.current) {
-            setInputSearch(inputRef.current.value.toLowerCase());
-        }
+    const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setInputSearch(e.target.value.toLowerCase())
         const filteredData = data.filter((item) => {
             return item.title.toLowerCase().includes(inputSearch);
         });
         setSearchItem(filteredData);
     }
 
-    const handleEnter = (e: React.KeyboardEvent<HTMLFormElement>) => {
-        if (e.key === 'Enter') {
-            handleSearch(e)
-        }
-    }
+    // const handleEnter = (e: React.KeyboardEvent<HTMLFormElement>) => {
+    //     if (e.key === 'Enter') {
+    //         handleSearch(e)
+    //     }
+    // }
 
 
     useEffect(() => {
@@ -92,12 +87,9 @@ const ProductList = () => {
                 </div>
                 
                 <div className="right">
-                    <form className="search" onSubmit={handleSearch} onKeyDown={handleEnter} >
-                        <input type="text" placeholder='Search product...' ref={inputRef} />
-                        <button className='btn'>
-                            <Search className='sear' />
-                        </button>
-                    </form>
+                    <div className="search" >
+                        <input type="text" placeholder='Search product...' onChange={handleSearch} value={inputSearch} />
+                    </div>
                     <div className='list'>
                         {
                             category.length > 0
