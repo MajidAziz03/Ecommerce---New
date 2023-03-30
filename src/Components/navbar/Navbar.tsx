@@ -38,9 +38,9 @@ const Navbar = () => {
                             <ShoppingCartOutlined color='primary' />
                         </Badge>
                     </Link>
-                    {/* <Link to='/login'>
-                        <li >Login</li>
-                    </Link> */}
+                    <Link to='/login'>
+                        <li >Logout</li>
+                    </Link>
                 </ul>
             </div>
         </div>

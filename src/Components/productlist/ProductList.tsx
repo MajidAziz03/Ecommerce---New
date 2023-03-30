@@ -26,6 +26,7 @@ const ProductList = () => {
     const location = useLocation()
     const [inputSearch, setInputSearch] = useState('')
     const [searchItem, setSearchItem] = useState<ProductProps[]>([])
+    const [view, setView] = useState(false)
     const inputRef = useRef<HTMLInputElement>(null)
 
 
@@ -63,6 +64,11 @@ const ProductList = () => {
     //     }
     // }
 
+    const viewAll = () => {
+        setView(true)
+        setCategory([])
+    }
+
 
     useEffect(() => {
         products().then(res => setData(res))
@@ -75,7 +81,7 @@ const ProductList = () => {
             <div className="productsHolder">
                 <div className="left">
                     <ul>
-                        <li>View All</li>
+                        <li onClick={viewAll}>View All</li>
                         {
                             lists.map((item) => (
                                 <>
@@ -85,7 +91,7 @@ const ProductList = () => {
                         }
                     </ul>
                 </div>
-                
+
                 <div className="right">
                     <div className="search" >
                         <input type="text" placeholder='Search product...' onChange={handleSearch} value={inputSearch} />
@@ -110,11 +116,19 @@ const ProductList = () => {
                                         </>
                                     ))
                                     :
-                                    (
-                                        currentItems.map((item) => (
-                                            <Product items={item} />
-                                        ))
-                                    )
+                                    view
+                                        ?
+                                        (
+                                            currentItems.map((item) => (
+                                                <Product items={item} />
+                                            ))
+                                        )
+                                        :
+                                        (
+                                            currentItems.map((item) => (
+                                                <Product items={item} />
+                                            ))
+                                        )
                         }
                     </div>
                     <ReactPaginate
