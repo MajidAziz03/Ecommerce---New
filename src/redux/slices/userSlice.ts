@@ -5,7 +5,7 @@ import type { PayloadAction } from '@reduxjs/toolkit'
 interface UserLoginProps {
     id: number;
     username: string;
-    token: string;
+    accessToken: string;
 }
 
 interface UserData {
@@ -19,7 +19,7 @@ const initialState: UserData = {
     user: {
         id: 0,
         username: '',
-        token: ""
+        accessToken: ""
     },
     error: false
 }
@@ -37,7 +37,7 @@ export const counterSlice = createSlice({
             state.user = action.payload;
         },
         logout: (state) => {
-            state.user.token = '';
+            state.user.accessToken = '';
         }
     },
 })

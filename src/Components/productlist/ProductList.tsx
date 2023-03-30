@@ -6,8 +6,10 @@ import Navbar from '../navbar/Navbar';
 import ReactPaginate from 'react-paginate';
 import { lists } from '../../lists';
 import axios from 'axios';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Search, SearchOffOutlined } from '@mui/icons-material';
+import { useAppSelector } from '../../redux/hooks';
+import { toast } from 'react-toastify';
 
 interface ProductProps {
     id: number;
@@ -28,6 +30,8 @@ const ProductList = () => {
     const [searchItem, setSearchItem] = useState<ProductProps[]>([])
     const [view, setView] = useState(false)
     const inputRef = useRef<HTMLInputElement>(null)
+    const user = useAppSelector((state) => state.user.user.accessToken)
+    const router = useNavigate()
 
 
 
@@ -74,6 +78,11 @@ const ProductList = () => {
         products().then(res => setData(res))
     }, [])
 
+    useEffect(() => {
+        if(!user) {
+            router('/login', {state : {message : "Please login first "}})
+        }
+    }, [user])
 
     return (
         <>

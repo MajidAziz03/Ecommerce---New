@@ -8,13 +8,15 @@ import './cart.scss';
 
 const Cart = () => {
     const cartData = useAppSelector((state) => state.product.items)
+    const user = useAppSelector((state) => state.user.user.accessToken)
 
-    
+
+
     return (
         <>
             <Navbar />
             {
-                cartData.length > 0
+                cartData.length > 0 
                     ?
                     (
                         <div className='cart'>

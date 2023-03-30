@@ -7,7 +7,7 @@
 
     form {
         width: 450px;
-        height: 400px;
+        height: max-content;
         background-color: rgb(234, 227, 228);
         border-radius: 5px;
         padding: 12px;
@@ -19,7 +19,18 @@
             flex-direction: column;
             gap: 25px;
             height: 80%;
-            width: 80%;
+            width: 90%;
+            padding-bottom: 22px;
+
+            .err {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: red;
+                font-size: 18px;
+                padding-top: 22px;
+            }
 
             input {
                 width: 100%;
