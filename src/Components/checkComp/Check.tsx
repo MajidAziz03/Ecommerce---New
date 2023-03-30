@@ -23,6 +23,8 @@ const Check = () => {
     dispatch(decrement())
   }
 
+  console.log(cartTotal)
+
   return (
     <>
       <table>
@@ -57,7 +59,7 @@ const Check = () => {
                   </div>
                 </td>
                 <td><span className="price">${item.price} </span></td>
-                {/* <td> <span className="total"> ${cartTotal} </span>  </td> */}
+                <td><span className="total">${cartTotal} </span></td>
               </tr>
             </>
           ))

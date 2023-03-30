@@ -12,20 +12,15 @@ export interface InitialStateProps {
 }
 
 
-
 interface CartState {
     items: InitialStateProps[];
-    total: unknown;
+    total: number;
 }
 
 
 const initialState: CartState = {
     items: [],
     total: 0,
-}
-
-interface RemoveProp {
-    id: number;
 }
 
 
@@ -38,6 +33,7 @@ export const counterSlice = createSlice({
             const existingItem = state.items.findIndex(item => item.id === items.id)
             if (existingItem >= 0) {
                 state.items[existingItem].quantity += 1
+                state.total = state.items[existingItem].price * state.items[existingItem].quantity
             }
             else {
                 const temp = { ...items, quantity: 1 }
@@ -53,6 +49,7 @@ export const counterSlice = createSlice({
             const id = action.payload;
             const ext = state.items.findIndex((item) => item.id === id)
             state.items[ext].quantity += 1;
+            state.total = state.items[ext].price * state.items[ext].quantity;
         },
 
         decrement: (state) => {
