@@ -1,5 +1,6 @@
+import { ShoppingBagOutlined } from '@mui/icons-material';
 import React, { useEffect } from 'react'
-import { Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './product.scss';
 
 
@@ -32,9 +33,9 @@ const Product = ({ items }: Props) => {
                     {items.description}
                 </div>
                 <span> Rs: {items.price}/= </span>
-                <div className="rating">
-                    {items.brand}
-                </div>
+            </div>
+            <div className="rating">
+                {items.brand}
             </div>
         </div>
     )
