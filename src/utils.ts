@@ -3,7 +3,7 @@ import { AUTH_URL, BASE_URL } from "./globalconfig";
 
 
 
-const instance = axios.create({
+export const instance = axios.create({
     baseURL: BASE_URL
 })
 
